@@ -31,7 +31,7 @@ class Test extends Component {
         const { test } = this.props;
         return (
             <div>
-                this is test~
+                this is test~!
                 <p>number: { test.number }</p>
                 <p>time: { test.time }</p>
                 <button onClick={this.handlerIncrement}>increment</button>
