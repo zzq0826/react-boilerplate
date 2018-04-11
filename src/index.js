@@ -5,14 +5,19 @@ import { createStore } from 'redux'
 import App from './views/app'
 
 import { AppContainer } from 'react-hot-loader'
+import { PersistGate } from 'redux-persist/integration/react'
 
-import store from './redux/store';
+
+import setup from './redux/store';
+const { store, persistor } = setup();
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
         <Provider store={store}>
-          <Component />
+          <PersistGate loading={null} persistor={persistor}>
+            <Component />
+          </PersistGate>
         </Provider>
     </AppContainer>,
     document.getElementById('root'),
